@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Layout } from "@/components/layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,6 +9,28 @@ import { Calendar, Clock, ArrowRight, CheckCircle } from "lucide-react";
 import textureImage from "@assets/generated_images/bright_warming_sunshine_wellness_background_with_natural_elements.png";
 
 export default function Booking() {
+  const [program, setProgram] = useState("");
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const name = `${data.get("first-name") || ""} ${data.get("last-name") || ""}`.trim();
+    const email = data.get("email") || "";
+    const phone = data.get("phone") || "";
+    const goals = data.get("goals") || "";
+    const programLabel = {
+      "beyond-cleanse": "Beyond Cleanse (Entrepreneurs)",
+      "perinatal": "Shine Through Perinatal Journey",
+      "general": "General Health Consultation",
+      "unsure": "Not sure yet",
+    }[program] || "Not specified";
+    const subject = encodeURIComponent(`Booking Request: ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nInterested Program: ${programLabel}\n\nMain Health Goals:\n${goals}`
+    );
+    window.location.href = `mailto:hello@youshine.wellness?subject=${subject}&body=${body}`;
+  }
+
   return (
     <Layout>
       <div className="relative min-h-[90vh] flex items-center py-20">
@@ -65,32 +88,32 @@ export default function Booking() {
                     <p className="text-muted-foreground">Fill out the form below and we'll contact you to confirm a time.</p>
                   </div>
 
-                  <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                  <form className="space-y-6" onSubmit={handleSubmit}>
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <label htmlFor="first-name" className="text-sm font-bold text-[#5D4037]">First Name</label>
-                        <Input id="first-name" placeholder="Jane" className="bg-orange-50/30 border-orange-100 focus:border-primary h-12" />
+                        <Input id="first-name" name="first-name" placeholder="Jane" className="bg-orange-50/30 border-orange-100 focus:border-primary h-12" />
                       </div>
                       <div className="space-y-2">
                         <label htmlFor="last-name" className="text-sm font-bold text-[#5D4037]">Last Name</label>
-                        <Input id="last-name" placeholder="Doe" className="bg-orange-50/30 border-orange-100 focus:border-primary h-12" />
+                        <Input id="last-name" name="last-name" placeholder="Doe" className="bg-orange-50/30 border-orange-100 focus:border-primary h-12" />
                       </div>
                     </div>
-                    
+
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <label htmlFor="email" className="text-sm font-bold text-[#5D4037]">Email Address</label>
-                        <Input id="email" type="email" placeholder="jane@example.com" className="bg-orange-50/30 border-orange-100 focus:border-primary h-12" />
+                        <Input id="email" name="email" type="email" placeholder="jane@example.com" className="bg-orange-50/30 border-orange-100 focus:border-primary h-12" />
                       </div>
                       <div className="space-y-2">
                         <label htmlFor="phone" className="text-sm font-bold text-[#5D4037]">Phone Number</label>
-                        <Input id="phone" type="tel" placeholder="(555) 000-0000" className="bg-orange-50/30 border-orange-100 focus:border-primary h-12" />
+                        <Input id="phone" name="phone" type="tel" placeholder="(555) 000-0000" className="bg-orange-50/30 border-orange-100 focus:border-primary h-12" />
                       </div>
                     </div>
 
                     <div className="space-y-2">
                       <label htmlFor="program" className="text-sm font-bold text-[#5D4037]">Interested Program</label>
-                      <Select>
+                      <Select value={program} onValueChange={setProgram}>
                         <SelectTrigger className="bg-orange-50/30 border-orange-100 focus:border-primary h-12">
                           <SelectValue placeholder="Select a program..." />
                         </SelectTrigger>

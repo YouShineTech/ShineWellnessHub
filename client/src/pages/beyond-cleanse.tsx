@@ -2,6 +2,7 @@ import { Layout } from "@/components/layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { Check, ArrowRight, Clock, Activity, Brain, Zap, Award, ShieldCheck } from "lucide-react";
 import textureImage from "@assets/generated_images/ancient_wisdom_scroll_or_texture_background.png";
 import heroImage from "@assets/stock_images/business_professiona_46b58c3e.jpg";
@@ -45,12 +46,16 @@ export default function BeyondCleanse() {
               Reclaim your energy, focus, and freedom in just <span className="font-semibold text-primary">21 days</span> of one-on-one transformation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-primary text-white hover:bg-primary/90 h-14 px-8 text-lg rounded-none shadow-lg">
-                Apply for Transformation
-              </Button>
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 h-14 px-8 text-lg rounded-none bg-transparent">
-                Download Syllabus
-              </Button>
+              <Link href="/booking">
+                <Button size="lg" className="bg-primary text-white hover:bg-primary/90 h-14 px-8 text-lg rounded-none shadow-lg">
+                  Apply for Transformation
+                </Button>
+              </Link>
+              <a href="mailto:hello@youshine.wellness?subject=Beyond%20Cleanse%20Syllabus%20Request">
+                <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 h-14 px-8 text-lg rounded-none bg-transparent">
+                  Download Syllabus
+                </Button>
+              </a>
             </div>
           </motion.div>
         </div>
@@ -174,9 +179,11 @@ export default function BeyondCleanse() {
               </div>
 
               <div className="mt-10">
-                <Button className="w-full bg-primary hover:bg-primary/90 text-white h-12 text-lg rounded-none">
-                  Apply Now
-                </Button>
+                <Link href="/booking">
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-white h-12 text-lg rounded-none">
+                    Apply Now
+                  </Button>
+                </Link>
                 <p className="text-center text-xs text-muted-foreground mt-4">
                   100% Transformation Guarantee Included
                 </p>

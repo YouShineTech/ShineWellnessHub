@@ -1,5 +1,4 @@
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -41,11 +40,6 @@ export function BlogCard({ title, excerpt, date, image, readTime }: BlogCardProp
             {excerpt}
           </p>
         </CardContent>
-        <CardFooter className="pt-0">
-          <Button variant="link" className="px-0 text-secondary-foreground hover:text-primary">
-            Read Article →
-          </Button>
-        </CardFooter>
       </Card>
     </motion.div>
   );

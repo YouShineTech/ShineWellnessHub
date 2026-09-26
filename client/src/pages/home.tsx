@@ -222,15 +222,12 @@ export default function Home() {
           <p className="text-white/90 text-lg max-w-2xl mx-auto mb-10 font-medium">
             Join our community of conscious leaders and parents. Receive ancient wisdom tailored for modern life.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input 
-              type="email" 
-              placeholder="Your email address" 
-              className="flex-grow h-14 px-6 rounded-full bg-white/20 border border-white/30 text-white placeholder:text-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
-            />
-            <Button className="h-14 px-10 bg-white text-primary hover:bg-white/90 font-bold rounded-full shadow-lg">
-              Subscribe
-            </Button>
+          <div className="flex justify-center">
+            <Link href="/booking">
+              <Button className="h-14 px-10 bg-white text-primary hover:bg-white/90 font-bold rounded-full shadow-lg">
+                Book a Consultation
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

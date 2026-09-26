@@ -11,6 +11,7 @@ import Contact from "@/pages/contact";
 import BeyondCleanse from "@/pages/beyond-cleanse";
 import ShinePerinatal from "@/pages/shine-perinatal";
 import Booking from "@/pages/booking";
+import ProgramDetail from "@/pages/program-detail";
 
 function Router() {
   const base = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -24,6 +25,7 @@ function Router() {
         <Route path="/booking" component={Booking} />
         <Route path="/programs/beyond-cleanse" component={BeyondCleanse} />
         <Route path="/programs/shine-perinatal" component={ShinePerinatal} />
+        <Route path="/programs/:slug" component={ProgramDetail} />
         <Route component={NotFound} />
       </Switch>
     </WouterRouter>

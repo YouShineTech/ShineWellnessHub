@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { Star, Heart, Sun, Moon, Users, Baby, Check } from "lucide-react";
 import heroImage from "@assets/stock_images/mother_holding_newbo_692fd47d.jpg";
 import imgPregnancy from "@assets/stock_images/pregnant_woman_yoga__a763b2a2.jpg";
@@ -70,9 +71,11 @@ export default function ShinePerinatal() {
               Ancient wisdom for your family's sacred transition. <br className="hidden md:block"/>
               From pre-conception through your baby's first year.
             </p>
-            <Button size="lg" className="bg-primary text-white hover:bg-primary/90 rounded-full px-10 h-14 text-lg shadow-lg">
-              Start Your Journey
-            </Button>
+            <Link href="/booking">
+              <Button size="lg" className="bg-primary text-white hover:bg-primary/90 rounded-full px-10 h-14 text-lg shadow-lg">
+                Start Your Journey
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </section>
@@ -156,9 +159,11 @@ export default function ShinePerinatal() {
                     ))}
                   </ul>
                   
-                  <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-colors">
-                    View Details
-                  </Button>
+                  <Link href="/booking">
+                    <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-colors">
+                      View Details
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
@@ -184,9 +189,11 @@ export default function ShinePerinatal() {
                <div className="flex items-center gap-2"><Check className="w-5 h-5 text-accent"/> 24/7 Emergency Support Hotline</div>
              </div>
            </div>
-           <Button size="lg" className="bg-white text-primary hover:bg-white/90 rounded-full px-12 h-16 text-xl font-bold shadow-2xl transform hover:scale-105 transition-transform">
-             Schedule Your Consultation
-           </Button>
+           <Link href="/booking">
+             <Button size="lg" className="bg-white text-primary hover:bg-white/90 rounded-full px-12 h-16 text-xl font-bold shadow-2xl transform hover:scale-105 transition-transform">
+               Schedule Your Consultation
+             </Button>
+           </Link>
          </div>
       </section>
     </Layout>
